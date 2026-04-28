@@ -1,10 +1,7 @@
-/* jshint esversion: 8 */
-
-// 1. Paste your key inside the quotes
 const API_KEY = "1721d1cf597645c990642132260604"; 
 
 document.getElementById('weatherForm').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Stop the page from refreshing
+    e.preventDefault();
     const city = document.getElementById('cityInput').value.trim();
     
     if (city) {
@@ -43,24 +40,42 @@ function displayWeather(data) {
     const resultDiv = document.getElementById('weatherResult');
     const temp = data.current.temp_c;
     const condition = data.current.condition.text.toLowerCase();
-    
-    // SAFE IMAGE HANDLING
-    // Sometimes the API gives us //cdn..., sometimes just the path. 
-    // We force it to be a full https:// link.
+
+
     let iconUrl = data.current.condition.icon;
     if (iconUrl.startsWith("//")) {
         iconUrl = "https:" + iconUrl;
     } else if (!iconUrl.startsWith("http")) {
-        iconUrl = "https:" + iconUrl; // Fallback
+        iconUrl = "https:" + iconUrl;
     }
 
-    console.log("Icon URL:", iconUrl); // This will tell us if the URL is valid in the console
-    
+    console.log("Icon URL:", iconUrl);
+
+
+    let bgImage = "images/welcome.jpg";
     let vibe = "Pretty mid.";
-    if (temp > 30) vibe = "The sun is a deadly laser. 🥵";
-    if (condition.includes("rain")) vibe = "Sky juice is falling. Stay inside. 🌧️";
-    if (temp < 0) vibe = "Basically the Ice Age. Why are you outside? ❄️";
-    if (condition.includes("cloud")) vibe = "The sky is wearing a gray hoodie. ☁️";
+
+
+    if (condition.includes("rain")) {
+        bgImage = "images/rain.png";
+        vibe = "Sky juice is falling. Stay inside. 🌧️";
+    } 
+    else if (condition.includes("cloud")) {
+        bgImage = "images/cloud.png";
+        vibe = "The sky is wearing a gray hoodie. ☁️";
+    } 
+    else if (temp < 10) {
+        bgImage = "images/cold.png";
+        vibe = "Basically the Ice Age. Why are you outside? ❄️";
+    } 
+    else if (temp > 30) {
+        bgImage = "images/hot.png";
+        vibe = "The sun is a deadly laser. 🥵";
+    }
+
+    
+    document.body.style.background = `url('${bgImage}') no-repeat center center/cover`;
+
 
     resultDiv.innerHTML = `
         <h2 style="margin:0;">${data.location.name}</h2>
@@ -71,9 +86,4 @@ function displayWeather(data) {
         <p style="text-transform: capitalize; color: #666;">${condition}</p>
         <span class="vibe-text">"${vibe}"</span>
     `;
-
-    // Background logic...
-    if (temp > 28) document.body.style.background = "linear-gradient(to right, #ff512f, #dd2476)";
-    else if (temp < 10) document.body.style.background = "linear-gradient(to right, #83a4d4, #b6fbff)";
-    else document.body.style.background = "linear-gradient(to right, #4facfe, #00f2fe)";
 }
