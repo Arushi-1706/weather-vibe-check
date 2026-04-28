@@ -19,19 +19,19 @@ Check out the app here: [https://arushi-1706.github.io/weather-vibe-check/](http
 
 ## 📸 Preview
 
-### Welcome
-![Welcome](preview/welcome.png)
+### 🎈 Welcome
+![Welcome](preview/Welcome.png)
 
-### Hot (Bhopal)
+### 🥵 Hot (Bhopal)
 ![Hot](preview/bhopal-hot.png)
 
-### Cloud (London)
+### ☁️ Cloud (London)
 ![Cloud](preview/london-cloud.png)
 
-### Cold (Nuuk)
+### ❄️ Cold (Nuuk)
 ![Cold](preview/nuuk-cold.png)
 
-### Rain (Ladakh)
+### 🌧️ Rain (Ladakh)
 ![Rain](preview/ladakh-rain.png)
 ---
 *Built with ✨ by Arushi Mishra*
