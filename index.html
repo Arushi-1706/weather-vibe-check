@@ -4,29 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Vibe Check</title>
-    <style>
-       body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('images/welcome.jpg') no-repeat center center/cover;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: background 0.5s ease;
-}
 
-        .weather-container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            width: 320px;
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('images/welcome.jpg') no-repeat center center/cover;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            position: relative;
+            transition: background 0.5s ease;
         }
 
-        h1 { margin-bottom: 20px; color: #333; }
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.25);
+            z-index: 0;
+        }
+
+        .weather-container {
+            position: relative;
+            z-index: 1;
+
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 320px;
+            color: white;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: white;
+        }
 
         input {
             padding: 12px;
@@ -34,10 +56,11 @@
             border: 2px solid #eee;
             border-radius: 8px;
             outline: none;
-            transition: border 0.3s;
         }
 
-        input:focus { border-color: #4facfe; }
+        input:focus {
+            border-color: #4facfe;
+        }
 
         button {
             padding: 12px;
@@ -49,7 +72,9 @@
             font-weight: bold;
         }
 
-        button:hover { background: #00c6ff; }
+        button:hover {
+            background: #00c6ff;
+        }
 
         .result {
             margin-top: 25px;
@@ -61,15 +86,17 @@
             margin-top: 15px;
             font-style: italic;
             font-weight: bold;
-            color: #555;
+            color: #ddd;
             font-size: 1.1rem;
         }
     </style>
 </head>
+
 <body>
 
     <div class="weather-container">
         <h1>Weather Vibe Check ☁️</h1>
+
         <form id="weatherForm">
             <input type="text" id="cityInput" placeholder="Enter city (e.g. Bhopal)" required>
             <button type="submit">Get Info</button>
