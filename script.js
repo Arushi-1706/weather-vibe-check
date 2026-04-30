@@ -57,7 +57,7 @@ function displayWeather(data) {
 
 
     if (condition.includes("rain")) {
-        bgImage = "preview/rain.png";
+        bgImage = "images/rain.png";
         vibe = "Sky juice is falling. Stay inside. 🌧️";
     } 
     else if (condition.includes("cloud")) {
