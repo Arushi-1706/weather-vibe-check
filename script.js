@@ -55,8 +55,11 @@ function displayWeather(data) {
     let bgImage = "images/welcome.jpg";
     let vibe = "Pretty mid.";
 
-
-    if (condition.includes("rain")) {
+    if (temp > 30 && condition.includes("rain")) {
+        bgImage = "images/rain.png";
+        vibe = "Hot AND raining? Absolute chaos. 🌦️";
+    }
+    else if (condition.includes("rain")) {
         bgImage = "images/rain.png";
         vibe = "Sky juice is falling. Stay inside. 🌧️";
     } 
