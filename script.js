@@ -52,24 +52,24 @@ function displayWeather(data) {
     console.log("Icon URL:", iconUrl);
 
 
-    let bgImage = "preview/Welcome.jpg";
+    let bgImage = "images/welcome.jpg";
     let vibe = "Pretty mid.";
 
 
     if (condition.includes("rain")) {
-        bgImage = "preview/ladakh-rain.png";
+        bgImage = "preview/rain.png";
         vibe = "Sky juice is falling. Stay inside. 🌧️";
     } 
     else if (condition.includes("cloud")) {
-        bgImage = "preview/london-cloud.png";
+        bgImage = "images/cloud.png";
         vibe = "The sky is wearing a gray hoodie. ☁️";
     } 
     else if (temp < 10) {
-        bgImage = "preview/nuuk-cold.png";
+        bgImage = "images/cold.png";
         vibe = "Basically the Ice Age. Why are you outside? ❄️";
     } 
     else if (temp > 30) {
-        bgImage = "preview/bhopal-hot.png";
+        bgImage = "images/hot.png";
         vibe = "The sun is a deadly laser. 🥵";
     }
 
