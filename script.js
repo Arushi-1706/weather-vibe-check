@@ -52,7 +52,7 @@ function displayWeather(data) {
     console.log("Icon URL:", iconUrl);
 
 
-    let bgImage = "preview/Welcome.png";
+    let bgImage = "preview/Welcome.jpg";
     let vibe = "Pretty mid.";
 
 
